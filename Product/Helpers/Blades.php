@@ -404,7 +404,7 @@ function newBlockbeneficiariesPartialBlade($code)
 {
     return "<div class=\"modal-header bg-primary recuadro\">
     <div class=\"panel-heading\">
-        <h6 class=\"modal-title\">Beneficiarios para ". strtoupper($code)."</h6>
+        <h6 class=\"modal-title\">Beneficiarios para {{\$retailerProduct->companyProduct->product->name }}</h6>
     </div>
 </div>
 <div class=\"panel panel-body border-top-success\" ng-controller=\"DetailDeController as detailDe\">
