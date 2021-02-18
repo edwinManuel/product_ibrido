@@ -251,7 +251,7 @@ function newCreateCancelBlade($code)
             {!! Form::open(['route' => [\$retailerProduct->companyProduct->product->code.'.cancel.store', 'rp_id' => \$rp_id, 'header_id' => encode(\$header->id)],
                 'method'        => 'post',
                 'class'         => 'form-horizontal',
-                'ng-controller' => 'Cancellation".ucfirst($code)."Controller',
+                'ng-controller' => 'CancellationController',
                 'ng-submit'     => 'cancelStore(\$event)'
             ]) !!}
             <label class=\"control-label col-lg-12 label_required\">Tipo de anulación: </label>
@@ -317,7 +317,7 @@ function newListCancelBlade($code)
     return "@extends('body')
 @var \$step=0
 @section('body')
-    <div class=\"col-xs-12\" ng-controller=\"Cancellation".ucfirst($code)."Controller\">
+    <div class=\"col-xs-12\" ng-controller=\"CancellationController\">
         <h6>Anulación de Certificados</h6>
         <hr />
         {!! Form::open(['url' => request()->fullUrl(),
