@@ -155,7 +155,7 @@ function newListBlade($code)
         <table class=\"table small_body\">
             @if(\$header->details->count() > 0)
                 <thead>
-                <tr style=\"background: #f3f3f3 none repeat scroll 0 0;\">
+                <tr style=\"background: #f3f3f3 none repeat scroll 0 0; text-transform: uppercase;\">
                     <th>Cliente</th>
                     <th>C.I.</th>
                     <th>Nombres y Apellidos</th>
@@ -167,7 +167,7 @@ function newListBlade($code)
                 <tbody>
                 @foreach(\$header->details as \$key => \$detail)
                     <tr>
-                        <td>{{ \$key === 0 ? 'T' : 'C' . \$key }}</td>
+                        <td class=\"alert alert-primary\">{{ \$key === 0 ? 'T' : 'C' . \$key }}</td>
                         <td>
                             <a href=\"#\">
                                 {{ \$detail->client->dni
@@ -404,7 +404,7 @@ function newBlockbeneficiariesPartialBlade($code)
 {
     return "<div class=\"modal-header bg-primary recuadro\">
     <div class=\"panel-heading\">
-        <h6 class=\"modal-title\">Beneficiarios para {{\$retailerProduct->companyProduct->product->name }}</h6>
+        <h6 class=\"modal-title\" style=\"text-transform: uppercase;\">Beneficiarios para {{\$retailerProduct->companyProduct->product->name }}</h6>
     </div>
 </div>
 <div class=\"panel panel-body border-top-success\" ng-controller=\"DetailDeController as detailDe\">
@@ -421,9 +421,10 @@ function newBlockbeneficiariesPartialBlade($code)
             </a>
         @endif                            
     </div>
+    <div class=\"clearfix\">&nbsp;</div>
     <table class=\"table small_body\" style=\"width: 100%\">
         <thead>
-            <tr>
+            <tr style=\"background: #fafafa none repeat scroll 0 0; text-transform: uppercase;\">
                 <th>Nombre</th>
                 <th>Ap. Paterno</th>
                 <th>Ap. Materno</th>
@@ -438,7 +439,7 @@ function newBlockbeneficiariesPartialBlade($code)
             @var \$i=0
             @foreach(\$header->details->first()->beneficiaries as \$key => \$value)
                 <tr>
-                    <td style=\"font-weight: bold;\">{{\$value->first_name}}</td>
+                    <td style=\"background: #fafafa none repeat scroll 0 0; font-weight: bold;\">{{\$value->first_name}}</td>
                     <td>{{\$value->last_name}}</td>
                     <td>{{\$value->mother_last_name}}</td>
                     <td>{{\$value->dni}}</td>
@@ -486,7 +487,7 @@ function newBlockgeneralsPartialBlade($code)
 {
     return "<div class=\"modal-header bg-primary recuadro\">
     <div class=\"panel-heading\">
-        <h6 class=\"modal-title\">Datos Generales</h6>
+        <h6 class=\"modal-title\" style=\"text-transform: uppercase;\">Datos Generales</h6>
     </div>
 </div>
 <div class=\"panel panel-body border-top-success small_body\"> 
@@ -520,7 +521,7 @@ function newBlockgeneralsPartialBlade($code)
   {!!Form::close()!!}
 @else
     @var \$tomador = \$header->details->where(\"holder\",1)->first()
-    <div class=\"form-horizontal col-md-12\" style=\"background: #fafafa;\">
+    <div class=\"form-horizontal col-md-12\" style=\"background: #fafafa; text-transform: uppercase;\">
         <div class=\"col-xs-12 col-md-6\">
             @include('partials.fields', ['type'=>'label','label'=>'Forma de Pago','value'=>config('base.payment_methods.'.\$header->payment_method)])
             @include('partials.fields', ['type'=>'label','label'=>'Plazo (meses)','value'=>\$header->term])
@@ -540,14 +541,14 @@ function newBlocktitularPartialBlade($code)
 {
     return "<div class=\"modal-header bg-primary recuadro\">
     <div class=\"panel-heading\">
-        <h6 class=\"modal-title\">Datos del Titular </h6>
+        <h6 class=\"modal-title\" style=\"text-transform: uppercase;\">Datos del Titular </h6>
     </div>
 </div>
 <div class=\"panel panel-body border-top-success\">
     <table class=\"table small_body\" style=\"width: 100%;\">
         <thead>
-            <tr>
-                <th style=\"background: #fafafa none repeat scroll 0 0;\">C.I.</th>
+            <tr style=\"background: #fafafa none repeat scroll 0 0; text-transform: uppercase;\">
+                <th>C.I.</th>
                 <th>Nombres y Apellidos</th>
                 <th>Fecha Nacimiento</th>
                 <th>% Participación</th>
@@ -603,14 +604,14 @@ function newBlocktomadorPartialBlade($code)
 {
     return "<div class=\"modal-header bg-primary recuadro\">
     <div class=\"panel-heading\">
-        <h6 class=\"modal-title\">Datos del tomador</h6>
+        <h6 class=\"modal-title\" style=\"text-transform: uppercase;\">Datos del tomador</h6>
     </div>
 </div>
 <div class=\"panel panel-body border-top-success small_body\">     
     <div class=\"col-md-12\">
         <table class=\"table small_body\">
-            <tr>
-                <th style=\"background: #fafafa;\"><strong>CI / NIT</strong></th>
+            <tr style=\"background: #fafafa; text-transform: uppercase;\">
+                <th><strong>CI / NIT</strong></th>
                 <th><strong>Nombres y Apellidos</strong></th>
                 <th><strong>Fecha Nacimiento</strong></th>
             </tr>
