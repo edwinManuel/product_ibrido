@@ -117,7 +117,7 @@ function newCancellationTable($code)
     return "CREATE TABLE `op_".$code."_cancellations` (
 	`id` INT(10) UNSIGNED NOT NULL,
 	`op_".$code."_header_id` INT(10) UNSIGNED NOT NULL,
-	
+	`ad_annulleds_id` INT(10) UNSIGNED NOT NULL,
 	`ad_user_id` INT(10) UNSIGNED NOT NULL,
 	`reason` MEDIUMTEXT NOT NULL COLLATE 'utf8_unicode_ci',
 	`created_at` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -125,8 +125,8 @@ function newCancellationTable($code)
 	PRIMARY KEY (`id`) USING BTREE,
 	INDEX `op_".$code."_cancellations_op_".$code."_header_id_foreign` (`op_".$code."_header_id`) USING BTREE,
 	INDEX `op_".$code."_cancellations_ad_user_id_foreign` (`ad_user_id`) USING BTREE,
-	
-	
+	INDEX `op_".$code."_cancellations_ad_annulleds_id_foreign` (`ad_annulleds_id`) USING BTREE,
+	CONSTRAINT `op_".$code."_cancellations_ad_annulleds_id_foreign` FOREIGN KEY (`ad_annulleds_id`) REFERENCES `ad_annulleds` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	CONSTRAINT `op_".$code."_cancellations_ad_user_id_foreign` FOREIGN KEY (`ad_user_id`) REFERENCES `ad_users` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	CONSTRAINT `op_".$code."_cancellations_op_".$code."_header_id_foreign` FOREIGN KEY (`op_".$code."_header_id`) REFERENCES `op_".$code."_headers` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
